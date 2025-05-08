@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>1-Minute Reset - Mental Wellness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    let timer;
+    function startReset() {
+      const btn = document.getElementById('startBtn');
+      btn.disabled = true;
+      let seconds = 60;
+      const display = document.getElementById('countdown');
+      timer = setInterval(() => {
+        display.textContent = seconds + "s remaining";
+        seconds--;
+        if (seconds < 0) {
+          clearInterval(timer);
+          display.textContent = "You're refreshed ✨";
+          btn.disabled = false;
+        }
+      }, 1000);
+    }
+  </script>
+</head>
+<body>
+  <header class="hero-section small">
+    <div class="overlay">
+      <h1>1-Minute Reset</h1>
+      <p>Take a deep breath. You've got this.</p>
+    </div>
+  </header>
+  <main class="main-grid">
+    <section class="card">
+      <button class="button" id="startBtn" onclick="startReset()">Start Timer</button>
+      <p id="countdown" style="margin-top:1rem;font-size:1.2rem;"></p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Mental Wellness</p>
+  </footer>
+</body>
+</html>
